@@ -18,5 +18,6 @@ python main.py \
 `--repos`, required, takes a single string, or an unquoted, space-delimited list of strings, naming github code repositories in the form `<githubaccount>/<reponame>`, whose comments are to be scanned for those sentinel string values.
 
 `$TOKEN` is a personal access token which has access to `public_repo`
-and `repo` permissions. You can generate those
-[here](https://github.com/settings/tokens).
+and `repo` permissions.
+
+You can generate those [here](https://github.com/settings/tokens).
