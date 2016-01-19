@@ -1,4 +1,5 @@
 import argparse
+import sys
 from datetime import datetime
 import collections
 from github import Github
@@ -43,13 +44,13 @@ def main(sentinels, repos, token, since):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Count reviews on github")
     parser.add_argument('--sentinels', dest='sentinels', nargs="*", default='[":+1:", ":metal:"]', help='One or more strings to look for to count something as "reviewed"')
-    parser.add_argument('--repos', dest='repos', nargs="*", action='append', help="Repos to search through")
+    parser.add_argument('--repos', dest='repos', nargs="*", help="Repos to search through")
     parser.add_argument('--token', dest='token', help="Your github personal access token")
     parser.add_argument('--since', dest='since', type=valid_date, help="YYYY-MM-DD format of when to outer bound the request")
 
     args = parser.parse_args()
 
-    if not args.repo:
+    if not args.repos:
         raise RuntimeError("You must specify one or more repos with --repo")
     if not args.since:
         raise RuntimeError("You must specify a valid time to start the check")
